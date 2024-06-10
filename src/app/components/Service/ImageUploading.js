@@ -4,7 +4,7 @@ const uploadFile = (event) => {
     const formData = new FormData();
     formData.append("file", file);
 
-    axios.post('/upload', formData, {
+    axios.post('https://api.escuelajs.co/api/v1/files/upload', formData, {
         onUploadProgress: (progressEvent) => {
             const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
             console.log(`Progress: ${percentCompleted}%`);

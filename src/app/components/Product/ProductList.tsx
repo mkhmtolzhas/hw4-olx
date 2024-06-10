@@ -5,9 +5,12 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import ProductItem from './ProductItem';
 import { ProductItemProps } from './Types';
+import Loading from '../OnFetch/Loading';
+import Error from '../OnFetch/Error';
+import axiosInstance from '../../../../api/axiosInstance';
 
 const fetchProduct = async (): Promise<ProductItemProps[]> => {
-    const { data } = await axios.get('https://fakestoreapi.com/products?limit=8');
+    const { data } = await axiosInstance.get('/products?limit=8');
     return data;
 }
 
@@ -15,11 +18,11 @@ const ProductList: React.FC = () => {
     const { data, isError, isLoading } = useQuery<ProductItemProps[], Error>('products', fetchProduct);
 
     if (isLoading) {
-      return <h3>Loading...</h3>;
+      return <Loading />;
     }
 
     if (isError) {
-      return <h3>Error</h3>;
+      return <Error />;
     }
 
     return (

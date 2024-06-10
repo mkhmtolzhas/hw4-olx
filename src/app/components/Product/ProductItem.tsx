@@ -1,4 +1,3 @@
-// ProductItem.tsx
 import React from 'react';
 import { ProductItemProps } from './Types';
 
