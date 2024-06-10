@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.bg-custom {
+  background-image: url('https://tpc.googlesyndication.com/simgad/15359291464780882284');
+  @apply bg-cover bg-center; /* Применение классов утилит Tailwind для размера и положения */
+}
